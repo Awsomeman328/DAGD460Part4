@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Objects in JavaScript</title>
+    </head>
+    <body>
+
+        <!-- JSON (JavaScript Object Notation) -->
+        <script>
+
+            const a = {
+                likesPizza:true,
+                answerToLife:42,
+                name:"bob",
+                sayhi: function(){
+                    console.log("hi, I'm an object named " + this.name);
+                },
+                thingsilike: ["pizza", "bowling", "beer"],
+                itemsiown: [
+                    {}, 
+                    {}, 
+                    {}
+                ],
+            };
+            a.likesPizza = false;
+            a.sayhi();
+            
+            a.age = 39;
+            
+            console.log(a.age);
+            
+            console.log(a["name"]);
+            /*
+            console.log = ()=> {
+                alert("nope!");
+            };
+            
+            console.log("test...");*/
+            
+        </script>
+        
+        <!-- what about game objects? -->
+        <script>
+            
+            var b = {
+                pos:{x:0, y:0},
+                vel:{x:0, y:0},
+                update:()=>{
+                    // euler physics integration step:
+                    pos.x += vel.x;
+                    pos.y += vel.y;
+                },
+                isDead:false,
+            };
+            
+            function spawnBullet(){
+                
+                return {
+                    x:0,
+                    y:0,
+                    update:()=>{
+                        
+                    },
+                    isDead:false
+                };
+                
+            }
+            
+            b = spawnBullet(100, 200);
+            
+            console.log("nullet b is at x pos: "+b.x);
+            
+            
+        </script>
+        
+        <!-- creating a prototype -->
+        <script>
+        
+            function Bullet(){
+                
+                this.x = 33;
+                this.y = 0;
+                
+                this.update = ()=>{
+                    
+                };
+                
+                return "5464654";
+            }
+            
+            const bullets = [];
+            for(let i = 0; i < 10; i++){
+                bullets.push(new Bullet() );
+            }
+            
+            b = new Bullet(0);
+            
+            console.log(b.x);
+            
+        
+        </script>
+
+   
+    </body>
+</html>

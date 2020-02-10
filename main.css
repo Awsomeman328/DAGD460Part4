@@ -1,0 +1,40 @@
+body {
+    background: #666;
+    margin: 10px;
+    padding: 5px;
+}
+
+nav ul {
+    display: block;
+    float: left;
+    margin: auto;
+    text-decoration: none;
+    list-style: none;
+}
+
+nav ul li {
+    float: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+header {
+    
+}
+
+div ul{
+    list-style: none;
+    display: block;
+    float: left;
+    margin: auto;
+    border: 1px solid rgba(255,255,255, 0.25);
+}
+
+div ul li {
+    float: left;
+    margin: auto;
+    display: block;
+}
+div ul li ul {
+    list-style: circle;
+}

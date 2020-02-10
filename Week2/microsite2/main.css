@@ -1,0 +1,108 @@
+body {
+    margin:0;
+    font-family: "Arial, sans-serif";
+    background-color: #000; 
+    background-image: url(imgs/BG.jpg);
+    background-repeat:no-repeat;
+    background-position: center;
+    width: 1600px;
+    height: 1400px;
+    display: block;
+    margin: auto;
+}
+
+header {
+    width: 900px;
+    height: 135px;
+    display: block;
+    margin: 2px auto;
+    background: rgba(50,50,50,0.7);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-color: #2d2d2d;
+    border-width: thin;
+}
+
+header img #logo {
+    margin: 42px 0 0 17px;
+}
+
+header img.donate {
+    float: right;
+    margin: 45px 19px;
+}
+
+header img.donate-hover {
+    float: right;
+    margin: 42px -101px;
+    opacity: 0;
+    transition:opacity .25s;
+}
+
+header img.donate-hover:hover {
+    opacity: 1;
+}
+
+nav {
+    margin: 50px 0 0 5px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0 0 0 -45px
+}
+
+nav ul li {
+    float: left;
+    padding: 13px;
+    margin: 1px;
+    font-size: 16pt;
+    background: linear-gradient
+        (0deg, rgba(55,55,55,0) 0%, rgba(55,55,55,1) 50%, rgba(55,55,55,0) 100%);
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+section {
+    width: 900px;
+    height: 1000px;
+    display: block;
+    margin: auto;
+    position: relative;
+}
+
+section form {
+    width: 820px;
+    height: 350px;
+    margin: -395px 40px;
+    position: relative;
+}
+
+section form input {
+    float: right;
+    margin: 25px 25px 25px 250px;
+    width: 65px;
+}
+
+section form select {
+    float: right;
+    margin: 95px -515px 95px -200px;
+    width: 265px;
+}
+
+section form select.departureTime {
+    margin: 165px -515px;
+}
+
+section form input.gamerName {
+    width: 260px;
+}
+
+section form input.games {
+    margin: 161px 25px 25px 250px;
+     width: 260px;
+}
+

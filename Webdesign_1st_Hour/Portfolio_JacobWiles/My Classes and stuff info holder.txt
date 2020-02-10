@@ -1,0 +1,30 @@
+  <li>My School Life</li>
+
+    <ul><li>My friends</li>
+
+    <li>My classes</li>
+
+      <ul><li>9th Grade</li>
+
+        <ul><li>Health // Computer Apps </li>
+        <li>English 9</li>
+        <li>U.S. History</li>
+        <li>Algebra II</li>
+        <li>Physical Science</li>
+        <li>French II</li>
+        </ul>
+
+      </ul>
+      <ul><li>10th Grade (not complete)</li>
+
+        <ul><li>E2020/Web Design // Physical Education 2</li>
+        <li>Pre-Calculus</li>
+        <li>World History</li>
+        <li>Physical Education 1 // Video Productions</li>
+        <li>Biology</li>
+        <li>English 10</li>
+        </ul>
+
+      </ul>
+
+    </ul>

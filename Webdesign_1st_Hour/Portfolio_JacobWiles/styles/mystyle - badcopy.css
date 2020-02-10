@@ -1,0 +1,204 @@
+Halvetica, Arial, Serif { 
+
+padding : 0.2cm 0.4cm 0.3cm 0.4cm; 
+
+border : red 6px; 
+
+margin : 0.2cm 0.4cm 0.3cm 0.4cm; 
+
+background-color : black; 
+} 
+h1 { 
+
+font-family : "Century Gothic", Verdana, Arial, sans-sarif, "Comic Sans MS"; 
+
+font-size : 6.4em; 
+
+padding : 0.02cm 0.04cm 0.03cm 0.04cm; 
+
+border : black solid 5px; 
+
+margin : 0.02cm 0.04cm 0.03cm 0.04cm; 
+
+color : black; 
+
+background-color : red; 
+} 
+h2 { 
+
+font-family : "Century Gothic", Verdana, Arial, sans-sarif, "Comic Sans MS"; 
+
+font-size : 3.2em; 
+
+padding : 0.002cm 0.004cm 0.003cm 0.004cm; 
+
+border : black solid 4px; 
+
+margin : 0.002cm 0.004cm 0.003cm 0.004cm; 
+
+color : black; 
+
+background-color : yellow; 
+} 
+h3 { 
+
+font-family : "Century Gothic", Verdana, Arial, sans-sarif, "Comic Sans MS"; 
+
+font-size : 1.6em; 
+
+color : black;
+
+background-color : ; 
+} 
+p { 
+
+padding : 0.0002cm 0.0004cm 0.0003cm 0.0004cm; 
+
+border : red solid 3px; 
+
+margin : 0.0002cm 0.0004cm 0.0003cm 0.0004cm; 
+
+background-color : black; 
+} 
+p.bigitalic { 
+
+font-size : 115%; 
+
+font-style : italic; 
+} 
+p.italic { 
+
+font-style : italic; 
+} 
+ul { 
+
+padding : 0.00002cm 0.00004cm 0.00003cm 0.00004cm; 
+
+border : red solid 2px; 
+
+margin : 0.00002cm 0.00004cm 0.00003cm 0.00004cm; 
+
+background-color : red; 
+} 
+il { 
+
+padding : 0.000002cm 0.000004cm 0.000003cm 0.000004cm; 
+
+border : red solid 1px; 
+
+margin : 0.000002cm 0.000004cm 0.000003cm 0.000004cm; 
+
+background-color : white; 
+} 
+li.yellow { 
+
+color : yellow; 
+} 
+table { 
+
+padding : 2cm 4cm 3cm 4cm; 
+
+border : red solid 5px; 
+
+margin : 2cm 4cm 3cm 4cm; 
+
+color : black; 
+
+background-color : black; 
+} 
+th { 
+
+padding : 0.2cm 0.4cm 0.3cm 0.4cm; 
+
+border : white solid 4px; 
+
+margin : 0.2cm 0.4cm 0.3cm 0.4cm; 
+
+background-color : red; 
+} 
+td { 
+
+padding : 0.02cm 0.04cm 0.03cm 0.04cm; 
+
+border : yellow solid 3px; 
+
+margin : 0.02cm 0.04cm 0.03cm 0.04cm; 
+
+background-color : white; 
+} 
+caption { 
+
+padding : 0.002cm 0.004cm 0.003cm 0.004cm; 
+
+border : black solid 2px; 
+
+margin : 0.002cm 0.004cm 0.003cm 0.004cm; 
+
+background-color : yellow; 
+} 
+#skipnav { 
+
+width : 10em; 
+} 
+.info { 
+
+width : 40%; 
+
+font-size : 1.2em; 
+
+float : left; 
+} 
+#overview { 
+
+font-weight : bold; 
+
+font-size : 1.5em; 
+} 
+.temp { 
+
+font-style : italic; 
+} 
+#main { 
+
+background-color : white; 
+
+color : red; 
+} 
+a { 
+
+color : blue; 
+
+background-color : red; 
+} 
+a:hover, a:focus { 
+
+color : red; 
+
+background-color : blue; 
+} 
+div#skipnav { 
+
+position : relative; 
+
+right : 12.5%; 
+} 
+div#navigation { 
+
+clear : left; 
+
+width : 100%; 
+
+min-width : 720px; 
+
+margin : 0 auto; 
+} 
+div#navigation ul { 
+
+list-style-type : none; 
+} 
+div#navigation ul il { 
+
+float : left; 
+
+margin-right : 0.5em; 
+} 

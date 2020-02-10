@@ -1,0 +1,59 @@
+body {
+    background: #999;
+    font-family: Helvetica, "Arial", sans-serif;
+}
+
+#gallery {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.29);
+}
+#thumbs a {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    width: 128px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.25);
+    margin: 20px;
+    background: rgba(240, 229, 193, 0.9);
+    color: #000;
+    font-weight: bold;
+    float: left;
+    transition: background .2s, transform .3s cubic-bezier(.65, -.47, .46, 1.47);
+}
+/*
+#thumbs a:nth-of-type(2n) {
+    background: #000;
+}*/
+#thumbs a:hover {
+    /*box-shadow: 1px 1px 3px #000;*/
+    background: #ff0;
+    transform: rotate(10deg) scale(1.5);
+}
+
+
+#thumbs a span {
+    text-decoration: none;
+    /*position: absolute; We can uses these for our comments in CSS*/
+    top: 128px;
+    left: 0;
+    width: 100%;
+    /*background: #fff;*/
+    display: block;
+    text-align: center;
+    padding: 5px 0;
+}
+
+#thumbs a img {
+    display: block;
+}
+.clear {
+    clear: both;
+}
+#thumbs {
+    /*display: grid;
+    grid-template-columns:4;*/
+}

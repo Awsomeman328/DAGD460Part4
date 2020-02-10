@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Arrays in JS</title>
+    </head>
+    <body>
+
+        <!-- make some arrays -->
+        <script>
+
+            var a = [];
+            a = [0, "cow", true, NaN, [1,2,3], .45];
+            //console.log(a[1]);
+            var s = "hello";
+            
+            console.log(   "hello"[4]   );
+            
+            console.log(   ["nick", "billy", "jane"][2]   ); // only returns jane
+            
+        </script>
+        
+        
+        <!-- manipulating arrays -->
+        <script>
+        
+            console.log(a);
+            
+            a.splice(2, 1); // removes 1 item starting at index 2 (in this case)
+            a.pop();        // remove last item
+            a.push("yay!"); // add new item at end
+            a.shift();      // remove first item
+            
+            console.log(a);
+            
+        </script>
+        
+        
+        <!-- iterate -->
+        <script>
+        
+            var b = ["collin", 42, "ethan", "ben"];
+            
+            for(var i = 0; i < b.length; i++){
+                console.log(b[i]);
+            }
+            
+            //b.forEach( function(name){ console.log(name);  } );
+            b.forEach( (n)=>console.log(n) );
+        
+        </script>
+    </body>
+</html>

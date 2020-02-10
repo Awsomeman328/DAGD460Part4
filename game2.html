@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Connect4 || Game2</title>
+        <style>
+            #main {
+                height: 275px;
+                width: 275px;
+                background-color: blue;
+            }
+            #droppers {
+                margin: 1px;
+            }
+            #droppers button {
+                width: 30px;
+                margin: 1px;
+            }
+            .column button{
+                display:block;
+                margin: 3px;
+                width: 30px;
+                height: 30px;
+                pointer-events: none;
+            }
+            .column {
+                display: block;
+                float: left;
+                margin: auto;
+            }
+            #scoreboard {
+                width: 300px;
+            }
+            .score {
+                display: block;
+                float: left;
+                margin: 3px;
+                width: 100px;
+            }
+            #reset{
+                display: block;
+                float: left;
+                margin: 3px;
+                width: 60px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="turn">It is Player (x)'s (Red/Black) Turn.</div>
+        <div id="droppers">
+               <!--
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                -->
+            </div>
+        <div id="main">
+            <!--
+            <div class="column" id="c1">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+            <div class="column" id="c2">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+            <div class="column" id="c3">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+            <div class="column" id="c4">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+            <div class="column" id="c5">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+            <div class="column" id="c6">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+            <div class="column" id="c7">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+        </div>
+        -->
+        <div id="scoreboard">
+            <div class="score">P1 Score: X </div>
+            <button id="reset"> Reset </button>
+            <div class="score"> P2 Score: X</div>
+        </div>
+        <script src="game2.js"></script>
+    </body>
+</html>

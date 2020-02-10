@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Working with the DOM</title>
+    </head>
+    <body>
+
+        <div id="content">Hello world!</div>
+        <button onclick="javascript:cleanUp();">Clean up</button>
+       
+        <script>
+
+            var div = document.getElementById("content");
+            div.innerHTML = "<u>this is a test</u>";
+            
+            function cleanUp(){
+                document.body.removeChild(div);
+            }
+            
+        </script>
+
+   
+    </body>
+</html>

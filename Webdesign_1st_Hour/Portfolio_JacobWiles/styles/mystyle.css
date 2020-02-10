@@ -1,0 +1,245 @@
+/*
+  Color Scheme for this website
+  #000000	Black	0/0/0
+  #FF0000	Red	255/0/0
+  #FFFFFF	White	255/255/255
+  #FFFF00	Yellow	255/255/0
+*/
+
+
+      body{
+        background-image : url('images\gradient.jpg');
+        background-color : black;
+        color : black;
+	font-family : "Lucida Grande",Halvetica,Arial,Serif,"Comic Sans MS";
+        margin-left : 10%;
+        margin-right : 10%;
+        padding : 2cm 4cm 3cm 4cm;
+        border : 8px solid red;
+        margin : 2cm 4cm 3cm 4cm;
+        width : 60%;
+        min-width : 720px;
+        margin : 0 auto;
+        }
+
+      div{
+        padding : .2cm .4cm .3cm .4cm;
+        border : 7px solid white;
+        margin : .2cm .4cm .3cm .4cm;
+        background-color : black;
+        color: red;
+        }
+
+      h1{
+        font-family : "Century Gothic",Verdana,Arial,sans-sarif,"Comic Sans MS";
+        font-size : 250%;
+        padding : .02cm .04cm .03cm .04cm;
+        border : 6px solid yellow;
+        margin : .02cm .04cm .03cm .04cm;
+        color : white;
+        background-color : red;
+        }
+
+      h2{
+        font-family : "Century Gothic",Verdana,Arial,sans-sarif,"Comic Sans MS";
+        font-size : 200%;
+        padding : .002cm .004cm .003cm .004cm;
+        border : 5px solid black;
+        margin : .002cm .004cm .003cm .004cm;
+        color : yellow;
+        background-color : red;/*Was white, but changed for better visuals*/
+        }
+
+      h3{
+        font-family : "Century Gothic",Verdana,Arial,sans-sarif,"Comic Sans MS";
+        font-size : 1.6em;
+        color: red; /*Was black, but changed for better visual*/
+        background-color : yellow;
+        border: 4px solid red;
+        padding : .002cm .0004cm .0003cm .0004cm;
+        margin : .002cm .004cm .003cm .004cm;
+        }
+
+
+      p{
+        padding : .00002cm .00004cm .00003cm .00004cm;
+        border : 3px solid white;
+        margin : .00002cm .00004cm .00003cm .00004cm;
+        background-color : black;
+        color : red;
+        }
+
+
+      p.bigitalic{
+        font-size : 115%;
+        font-style : italic;
+        }
+
+      p.italic{
+        font-style : italic;
+        }
+
+      p.bold{
+        font-weight : bold;
+        }
+
+
+      ul{
+        padding : .000002cm .000004cm .000003cm .000004cm;
+        border : 2px solid yellow;
+        margin : .000002cm .000004cm .000003cm .000004cm;
+        background-color : red;
+        color : white;
+        }
+
+      il{
+        padding : .0000002cm .0000004cm .0000003cm .0000004cm;
+        border : 1px solid black;
+        margin : .0000002cm .0000004cm .0000003cm .0000004cm;
+        background-color : white;
+        color : yellow;
+        }
+
+      li.yellow{
+        color : yellow;
+        }
+
+
+      table{
+        padding : 2cm 4cm 3cm 4cm;
+        border : 5px solid white;
+        margin : 2cm 4cm 3cm 4cm;
+        color : red;
+        background-color : black;
+        }
+
+      th{
+        padding : .2cm .4cm .3cm .4cm;
+        border : 4px solid yellow;
+        margin : .2cm .4cm .3cm .4cm;
+        background-color : red;
+        color : white;
+        }
+
+      td{
+        padding : .02cm .04cm .03cm .04cm;
+        border : 3px solid black;
+        margin : .02cm .04cm .03cm .04cm;
+        background-color : white;
+        color : black; /*Was yellow, but changed for better visual*/
+        }
+
+      caption{
+        padding : .002cm .004cm .003cm .004cm;
+        border : 2px solid red;
+        margin : .002cm .004cm .003cm .004cm;
+        background-color : yellow;
+        color : black;
+        }
+
+
+      #skipnav{
+        width : 10em
+        }
+
+
+      .info{
+        width : 40%;
+        font-size : 1.2em;
+        float : left
+        }
+
+      #overview{
+        font-weight : bold;
+        font-size : 1.5em
+        }
+
+      .temp{
+        font-style : italic
+        }
+
+      #main{
+        background-color : white;
+        color : red
+        }
+
+      a{
+        color : blue;
+        background-color : red
+        }
+      a:hover,a:focus{
+        color : red;
+        background-color : blue
+        }
+
+      p#overview:first-letter{
+        font-size : 1em
+        }
+
+      div#skipnav{
+        position : relative;
+        right : 12.5%
+        }
+
+/* navigation menu styles */
+      div#navigation{
+        clear : left;
+        width : 100%;
+        min-width : 720px;
+        margin : 0 auto
+        }
+
+      div#navigation ul{
+        list-style-type : none;
+        }
+
+      div#navigation ul il{
+        float : left;
+        margin-right : 0.5em
+        }
+
+      div#navigation ul li a{
+        padding : 0.25em 1em;
+        text-decoration : none; /*no underline*/
+        background-color : #EBF5FF; /*pale bluish white*/
+        color : #4312AE; /*dark blue*/
+        border : 2px solid black;
+        border-top-left-radius : 1em 1em; /*rounded corner*/
+        border-top-right-radius : 1em 1em; /*another rounded corner!*/
+        }
+
+      div#navigation ul il a:hover,div#navition ul li a:focus{
+        color : black;
+        background-color : white;
+        font-weight : bold
+        }
+
+
+      div#main{
+        clear : left;
+        }
+
+
+/*Picture Settings*/
+
+      .centeredimage{
+        text-align : center;
+        margin-top : 0px;
+        margin-bottom : 0px;
+        padding : 0px;
+        border : 0px;
+        }
+
+
+ul#h3{
+  font-size : 1.0em;
+  font-weight : bold;
+  }
+
+p#review{
+  color : white;
+  }
+
+ol{
+  color :white;
+}

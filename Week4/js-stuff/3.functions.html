@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Functions in JS</title>
+    </head>
+    <body>
+
+        <!-- make some functions -->
+        <script>
+            // you can set default values in your functions.
+            function foo(a, b, c = "hello"){ 
+
+                if(!Number.isInteger(a)) return;
+
+                alert("you called foo() with: " + a + " " + b + " " + c);
+
+            }
+
+            foo(42, "cow"); // if a is not an integer, it will return out early.
+
+
+        </script>
+
+        <!-- anonymous functions -->
+        <script>
+
+            // functions are "top-level" type
+
+
+            var myFunc = function(){
+                console.log("hello?");  
+            };
+
+
+            var dt = 1;
+            var update = function(fn){
+
+                if(dt > .016) fn();
+            };
+
+            update(function(){ 
+                console.log("wow")
+            });
+
+            // closure:
+
+            function BuildFunction(){
+
+                var x = 13;
+                var y = 10;
+
+                return function(){
+                    return x + y;
+                };
+            }
+
+            var fn = BuildFunction();
+            console.log(fn());
+            
+            // self-executing function:
+            
+            (function(){
+                
+                console.log("what....?")
+                
+            })();
+
+        </script>
+        
+        <!-- arrow functions -->
+        
+        <script>
+        
+                var myFunc2 = (a)=>{
+                    
+                    console.log(a + ", I'm an arrow function");
+                };
+            
+            myFunc2("Greetings");
+            
+            
+            var log = a=>console.log(a);
+        
+            log("this is an example");
+            
+        </script>
+                
+
+    </body>
+</html>
