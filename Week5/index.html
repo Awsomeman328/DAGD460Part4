@@ -10,9 +10,25 @@
                 width:50px;
                 height:50px;
             }
+            body.home #mainmenu a.bttn_home,
+            body.photos #mainmenu a.photos,
+            #mainmenu a:hover {
+                background: #f00;
+                border-radius: 5px;
+            }
         </style>
     </head>
-    <body>
+    <body class="home">
+       <nav id="mainmenu">
+           <ul>
+               <li><a class="bttn_home" href="">home</a></li>
+               <li><a class="photos" href="">photos</a></li>
+               <li><a class="" href="">about me</a></li>
+               <li><a class="" href="">links n stuff</a></li>
+               <li><a class="" href="">contaxt</a></li>
+               <li><a class="" href=""></a></li>
+           </ul>
+       </nav>
         <div id="example1"></div>
         <script>
             
