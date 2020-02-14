@@ -22,12 +22,16 @@
     width: 800px;
     height: 200px;
     margin: auto;
+    background: #5d3105;
 }
 .row div {
     width: 200px;
     height: 200px;
     float: left;
     background: #5d3105;
-    background: radial-gradient(circle at 100px -100px, darkgoldenrod 150px, black 150px, black 162px,#5d3105 162px);
-    background: radial-gradient(circle at 100px 300px, darkgoldenrod 150px, black 150px, black 162px,#5d3105 162px);
+    background: radial-gradient(circle at 100px -125px, darkgoldenrod 150px, black 150px, black 162px,transparent 162px),
+        radial-gradient(circle at 100px 325px, darkgoldenrod 150px, black 150px, black 162px, transparent 162px),
+        radial-gradient(circle at -125px 100px, darkgoldenrod 150px, black 150px, black 162px, transparent 162px),
+        radial-gradient(circle at 325px 100px, darkgoldenrod 150px, black 150px, black 162px, transparent 162px);
+     background-repeat:no-repeat;
 }
