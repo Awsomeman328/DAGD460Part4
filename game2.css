@@ -51,6 +51,12 @@
 #blackPieces div {
     width: 150px;
     height: 150px;
+    /*Pieces Sizes:
+    size1: 50ox
+    size2: 75px
+    size3: 125px
+    size4: 150px
+    */
     margin: 25px;
     background: black;
     border-radius: 100px;
@@ -68,6 +74,12 @@
 #whitePieces div {
     width: 150px;
     height: 150px;
+    /*Pieces Sizes:
+    size1: 50ox
+    size2: 75px
+    size3: 125px
+    size4: 150px
+    */
     margin: 25px;
     background: white;
     border: 6px solid black;
