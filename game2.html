@@ -7,7 +7,14 @@
         <script src="Week5/js/jquery-3.4.1.min.js"></script>
     </head>
     <body>
+        <h1>Gobblet!&trade;</h1>
+        <h3>A Fun Game of Strategy</h3>
         <div id="main">
+            <div id="blackPieces">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
             <div id="box">
                 <div id="board">
                     <div id="spaces">
@@ -38,7 +45,28 @@
                     </div>
                 </div>
             </div>
+            <div id="whitePieces">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <script src="game2.js"></script>
         </div>
-        <script src="game2.js"></script>
+        <div class="rules">
+            <h2>RULES OF THE GAME</h2>
+            <p>Equipment: The game of Gobblet consists of a 16-square playing board and 24 playing pieces called gobblets: 12 white and 12 black.</p>
+            <div id="quickRules">
+                <h3>Object of the Game</h3>
+                Be the first player to align 4 gobblets in a row.
+                <h3>Quick Start</h3>
+                In turns, players can either:
+                <ul>
+                    <li>Put a new gobblet on the board.</li>
+                    <li>Move one of their gobblets already on the board to any empty space.</li>
+                    <li>Gobble up any smaller size gobblet already on the board with a bigger one.</li>
+                </ul>
+                The first player to align 4 gobblets in a row wins.
+            </div>
+        </div>
     </body>
 </html>

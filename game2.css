@@ -1,9 +1,16 @@
-
+#main {
+    background: #999;
+    height: 975px;
+}
 #box {
     width: 920px;
     height: 920px;
     background-color: burlywood;
     padding: 30px 30px 0px;
+    margin: 0 auto;
+    position: absolute;
+    top: 125px;
+    left: 300px;
 }
 #board {
     width: 900px;
@@ -34,4 +41,56 @@
         radial-gradient(circle at -125px 100px, darkgoldenrod 150px, black 150px, black 162px, transparent 162px),
         radial-gradient(circle at 325px 100px, darkgoldenrod 150px, black 150px, black 162px, transparent 162px);
      background-repeat:no-repeat;
+}
+#blackPieces {
+    width: 300px;
+    height: 800px;
+    padding: 25px;
+    position: relative;
+}
+#blackPieces div {
+    width: 150px;
+    height: 150px;
+    margin: 25px;
+    background: black;
+    border-radius: 100px;
+}
+
+#whitePieces {
+    width: 300px;
+    height: 800px;
+    padding: 25px;
+    transform: rotate(180deg);
+    position: absolute;
+    top: 125px;
+    left: 1300px;
+}
+#whitePieces div {
+    width: 150px;
+    height: 150px;
+    margin: 25px;
+    background: white;
+    border: 6px solid black;
+    border-radius: 100px;
+}
+
+.rules {
+    position: absolute;
+    top: 1100px;
+}
+#quickRules {
+    background: #5d3105;
+    color: white;
+    padding: 5px;
+}
+#quickRules h3{
+    background: black;
+    padding: 5px;
+    border: 2px solid #5d3105;
+    outline: 5px solid black;
+}
+ul {list-style: none}
+ul li:before {
+    content: "\2022";
+    color: black;
 }
