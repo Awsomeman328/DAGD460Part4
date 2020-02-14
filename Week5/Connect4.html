@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Connect4 || Game2</title>
+        <style>
+            #main {
+                height: 600px;
+                width: 800px;
+                background-color: blue;
+                padding: 5px;
+            }
+            #droppers {
+                margin: 1px;
+                padding: 5px;
+            }
+            #droppers button {
+                width: 90px;
+                margin: 1px;
+                padding: 5px;
+            }
+            .column div{
+                background-color: white;
+                display:block;
+                margin: 1px;
+                width: 90px;
+                height: 90px;
+                pointer-events: none;
+                border-radius: 45px;
+                text-align: center;
+                font-size: 80px;
+                padding: 5px;
+            }
+            .column {
+                display: block;
+                float: left;
+                margin: auto;
+                padding: 5px;
+                border-color: black;
+                border-left-width: 1px;
+            }
+            #scoreboard {
+                width: 700px;
+            }
+            .score {
+                display: block;
+                float: left;
+                margin: 3px;
+                width: 100px;
+            }
+            #reset{
+                display: block;
+                float: left;
+                margin: 3px;
+                width: 60px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="turn">It is Player (x)'s (Red/Black) Turn.</div>
+        <div id="droppers">
+               <!--
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                -->
+        </div>
+        <div id="main">
+            <!--
+            <div class="column" id="c1">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+            <div class="column" id="c2">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+            <div class="column" id="c3">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+            <div class="column" id="c4">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+            <div class="column" id="c5">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+            <div class="column" id="c6">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+            <div class="column" id="c7">
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+                <button>O</button>
+            </div>
+        </div>
+        -->
+        </div>
+        <div id="scoreboard">
+            <div class="score">P1 Score: X </div>
+            <button id="reset"> Reset </button>
+            <div class="score"> P2 Score: X</div>
+        </div>
+        <script src="js/connect4.js"></script>
+    </body>
+</html>
