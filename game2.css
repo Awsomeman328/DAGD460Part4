@@ -45,26 +45,13 @@ h3 {
         radial-gradient(circle at 325px 100px, darkgoldenrod 150px, black 150px, black 162px, transparent 162px);
      background-repeat:no-repeat;
 }
+
 #blackPieces {
     width: 300px;
     height: 800px;
     padding: 25px;
     position: relative;
 }
-#blackPieces div {
-    width: 150px;
-    height: 150px;
-    /*Pieces Sizes:
-    size1: 50ox
-    size2: 75px
-    size3: 125px
-    size4: 150px
-    */
-    margin: 25px;
-    background: black;
-    border-radius: 100px;
-}
-
 #whitePieces {
     width: 300px;
     height: 800px;
@@ -74,19 +61,38 @@ h3 {
     top: 125px;
     left: 1300px;
 }
-#whitePieces div {
-    width: 150px;
-    height: 150px;
-    /*Pieces Sizes:
-    size1: 50ox
-    size2: 75px
-    size3: 125px
-    size4: 150px
-    */
+.blackPiece {
+    margin: 25px;
+    background: black;
+    border-radius: 100px;
+}
+.whitePiece {
     margin: 25px;
     background: white;
     border: 6px solid black;
     border-radius: 100px;
+}
+/*Pieces Sizes:
+    size0: 50ox
+    size1: 75px
+    size2: 125px
+    size3: 150px
+    */
+.size3 {
+    width: 150px;
+    height: 150px;
+}
+.size2 {
+    width: 125px;
+    height: 125px;
+}
+.size1 {
+    width: 75px;
+    height: 75px;
+}
+.size0 {
+    width: 50px;
+    height: 50px;
 }
 
 .rules {
