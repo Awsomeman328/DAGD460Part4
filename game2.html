@@ -11,13 +11,16 @@
         <h3>A Fun Game of Strategy</h3>
         <div id="main">
             <div id="blackPieces">
+               <!--
                 <div class="blackPiece size2"></div>
                 <div class="blackPiece size3"></div>
-                <div class="blackPiece size1"></div>
+                <div class="blackPiece size3"></div>
+                -->
             </div>
             <div id="box">
                 <div id="board">
                     <div id="spaces">
+                       <!--
                         <div class="row">
                             <div class="space">
                                 <div class="whitePiece size3"></div>
@@ -30,88 +33,79 @@
                         </div>
                         <div class="row">
                             <div class="space"></div>
-                            <div class="space">
-                                <div class="whitePiece size1"></div>
-                            </div>
+                            <div class="space"></div>
                             <div class="space"></div>
                             <div class="space"></div>
                         </div>
                         <div class="row">
                             <div class="space"></div>
-                            <div class="space">
-                                <div class="blackPiece size3"></div>
-                            </div>
-                            <div class="space">
-                                <div class="blackPiece size2"></div>
-                            </div>
-                            <div class="space">
-                                <div class="blackPiece size0"></div>
-                            </div>
+                            <div class="space"> </div>
+                            <div class="space"></div>
+                            <div class="space"></div>
                         </div>
                         <div class="row">
                             <div class="space"></div>
                             <div class="space"></div>
-                            <div class="space">
-                                <div class="whitePiece size0"></div>
-                            </div>
-                            <div class="space">
-                                <div class="whitePiece size2"></div>
-                            </div>
+                            <div class="space"></div>
+                            <div class="space"></div>
                         </div>
                     </div>
-                    
-                    <div id="turnCounter">(Player (1//2)'s turn. (Please select a (white//black) Piece // Choose a valid space to place that piece.)) // (Game Over! (Player (1//2) wins!) // Tie Game.))</div>
+                    <div id="turnCounter">(Player (1//2)'s turn. (Please select a (white//black) Piece // Choose a valid space to place that piece.)) // (Game Over! (Player (1//2) wins!) // Tie Game.)</div>
+                    -->
                 </div>
             </div>
-            <div id="whitePieces">
-                <div class="whitePiece size0"></div>
-                <div class="whitePiece size3"></div>
-                <div class="whitePiece size3"></div>
-            </div>
-            <script src="game2.js"></script>
         </div>
-        <div class="rules">
-            <h2>RULES OF THE GAME</h2>
-            <p>Equipment: The game of Gobblet consists of a 16-square playing board and 24 playing pieces called gobblets: 12 white and 12 black.</p>
-            <div id="quickRules">
-                <h3>Object of the Game</h3>
-                Be the first player to align 4 gobblets in a row.
-                <h3>Quick Start</h3>
-                In turns, players can either:
-                <ul>
-                    <li>Put a new gobblet on the board.</li>
-                    <li>Move one of their gobblets already on the board to any empty space.</li>
-                    <li>Gobble up any smaller size gobblet already on the board with a bigger one.</li>
-                </ul>
-                The first player to align 4 gobblets in a row wins.
-            </div>
+        <div id="whitePieces">
+           <!--
+            <div class="whitePiece size2"></div>
+            <div class="whitePiece size3"></div>
+            <div class="whitePiece size3"></div>
+            -->
+        </div>
+        <script src="game2.js"></script>
+        </div>
+    <div class="rules">
+        <h2>RULES OF THE GAME</h2>
+        <p>Equipment: The game of Gobblet consists of a 16-square playing board and 24 playing pieces called gobblets: 12 white and 12 black.</p>
+        <div id="quickRules">
             <h3>Object of the Game</h3>
-            <p>Be the first player to align 4 gobblets in a row.</p>
-            <h3>Setting Up</h3>
-            <p>Each player chooses a color and arranges his gobblets in 3 stacks of 4 gobblets each. Only the 3 biggest gobblets are showing at the beginning. These stacks are called external stacks.</p>
-            <h3>Playing</h3>
-            <p>In turns, players can either put a new gobblet on the board, move one of their gobblets already on the board to any empty space or gobble up any smaller gobblet with a bigger gobblet already in play.</p>
-            <p>If you put a new gobblet in play, you must place it on an empty square. However, there is one exception to this rule: if your opponent already has 3 gobblets in a row on the board, you may gobble up to 1 of the 3 pieces in the line with a gobblet taken directly from one of your external stacks.</p>
-            <p>If you place all 12 of your pieces on the board before the game is over, you simply continue playing with the pieces on the board until a winner or a draw is declared.</p>
-            <h3>Winning</h3>
-            <p>The first player to align 4 gobblets in a row wins. The gobblets forming the line do not all have to be the same size and can be lined up vertically, horizontally or diagonally.</p>
-            <div id="noteOnPlay">
-                <h3>Notes on Play</h3>
-                <p><strong>Playing from Stacks: </strong>Players must play pieces in the order they appear, starting from the top.</p>
-                <p><strong>Playing from the Board: </strong>Gobblets must be lifted to ensure that only one piece is moved at a time.</p>
-                <p><strong>Gobbling: </strong>You can gobble up your own pieces. You can gobble up any smaller size gobblet; it does not have to be the next size down.</p>
-                <p><strong>Touched Gobblet: </strong>Once you touch a gobblet that is on the board you must play it. If you touch a gobblet that cannot be played, you automatically lose that game.</p>
-                <p><strong>Uncovering Gobblets: </strong>You can move any gobblet on the board whether it is coverning another gobblet or not. However, if you uncover one of your opponent's pieces, and this move reveals a line of 4 of your opponent's pieces, you lose unless you can place your gobblet over a different piece in this same line.</p>
-                <p><strong>Draws: </strong>The game is declared a draw if 3 repetitions of identical moves between whites and blacks occur or by mutual agreement between players.</p>
-                <p><strong>Ages: </strong>Gobblet is intended to challenge player ages 7 to adult.</p>
-            </div>
-            <h3>Playing in a Web Browser</h3>
-            <p>To play this game in your web browser, on your turn (player 1 is white and always goes first, player 2 is black and always moved second) click once on the gobblet you wish to move and click again on the space you wish to place that gobblet.</p>
-            <small>
-                <div>&copy;2001, Blue Orange&trade; Games Co.</div>
-                <div>HOT GAMES, COOL PLANET&trade;</div>
-                <div>www.gobblet.com</div>
-            </small>
+            Be the first player to align 4 gobblets in a row.
+            <h3>Quick Start</h3>
+            In turns, players can either:
+            <ul>
+                <li>Put a new gobblet on the board.</li>
+                <li>Move one of their gobblets already on the board to any empty space.</li>
+                <li>Gobble up any smaller size gobblet already on the board with a bigger one.</li>
+            </ul>
+            The first player to align 4 gobblets in a row wins.
         </div>
+        <h3>Object of the Game</h3>
+        <p>Be the first player to align 4 gobblets in a row.</p>
+        <h3>Setting Up</h3>
+        <p>Each player chooses a color and arranges his gobblets in 3 stacks of 4 gobblets each. Only the 3 biggest gobblets are showing at the beginning. These stacks are called external stacks.</p>
+        <h3>Playing</h3>
+        <p>In turns, players can either put a new gobblet on the board, move one of their gobblets already on the board to any empty space or gobble up any smaller gobblet with a bigger gobblet already in play.</p>
+        <p>If you put a new gobblet in play, you must place it on an empty square. However, there is one exception to this rule: if your opponent already has 3 gobblets in a row on the board, you may gobble up to 1 of the 3 pieces in the line with a gobblet taken directly from one of your external stacks.</p>
+        <p>If you place all 12 of your pieces on the board before the game is over, you simply continue playing with the pieces on the board until a winner or a draw is declared.</p>
+        <h3>Winning</h3>
+        <p>The first player to align 4 gobblets in a row wins. The gobblets forming the line do not all have to be the same size and can be lined up vertically, horizontally or diagonally.</p>
+        <div id="noteOnPlay">
+            <h3>Notes on Play</h3>
+            <p><strong>Playing from Stacks: </strong>Players must play pieces in the order they appear, starting from the top.</p>
+            <p><strong>Playing from the Board: </strong>Gobblets must be lifted to ensure that only one piece is moved at a time.</p>
+            <p><strong>Gobbling: </strong>You can gobble up your own pieces. You can gobble up any smaller size gobblet; it does not have to be the next size down.</p>
+            <p><strong>Touched Gobblet: </strong>Once you touch a gobblet that is on the board you must play it. If you touch a gobblet that cannot be played, you automatically lose that game.</p>
+            <p><strong>Uncovering Gobblets: </strong>You can move any gobblet on the board whether it is coverning another gobblet or not. However, if you uncover one of your opponent's pieces, and this move reveals a line of 4 of your opponent's pieces, you lose unless you can place your gobblet over a different piece in this same line.</p>
+            <p><strong>Draws: </strong>The game is declared a draw if 3 repetitions of identical moves between whites and blacks occur or by mutual agreement between players.</p>
+            <p><strong>Ages: </strong>Gobblet is intended to challenge player ages 7 to adult.</p>
+        </div>
+        <h3>Playing in a Web Browser</h3>
+        <p>To play this game in your web browser, on your turn (player 1 is white and always goes first, player 2 is black and always moved second) click once on the gobblet you wish to move and click again on the space you wish to place that gobblet.</p>
+        <small>
+            <div>&copy;2001, Blue Orange&trade; Games Co.</div>
+            <div>HOT GAMES, COOL PLANET&trade;</div>
+            <div>www.gobblet.com</div>
+        </small>
+    </div>
     </body>
 </html>
