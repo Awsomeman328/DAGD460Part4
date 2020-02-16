@@ -30,6 +30,26 @@ var gameState = {
     ]
 };
 
+/*
+TODO List:
+
+TODO: Add 'click' Event listeners to pieces. These Listeners:
+    -Checks whose turn it is. If the current turn matches their player's turn, then that player 'picks up' that piece.
+TODO: (Optional) When a piece is 'picked up', have that piece follow the mouse around until it is 'placed down'.
+TODO: Add 'click Event Listeners to spaces. These listeners:
+    -Checks to see if there is a piece 'picked up'. 
+    -If so, it checks to see if the 'picked up' piece is able to be placed in this space. It'll do this by first checking if the space has any pieces on it, and if not it will succeed the check and skip the next step.
+    -If there is at least 1 piece on this space, it will compare the size of the 'picked up' piece to all of the pieces currently on that space. If any pieces on the space are the same size or bigger, the check will fail and will return w/o placing the piece.
+    -If all checks succeed, it then places that piece on it's space and removes it from being 'picked up'.
+TODO: Spaces can remember all pieces ever placed on it, even gobbled up pieces.
+TODO: Spaces only display the biggest sized piece on them.
+TODO: The external stacks of pieces will display the next smallest piece when a piece if 'picked up'.
+TODO: Determine the winner.
+TODO: Create Reset Function.
+TODO: (Optional) visually display what are valid moves by outlining in green.
+
+*/
+
 function buildGame(){  
     
     const blackPieces = document.getElementById("blackPieces");
