@@ -1,0 +1,17 @@
+Welcome to the Kewl Games Korner!
+This is a website designed for my DAGD 460 course, Multimedia 2: Web Game Development.
+As such, this website is initically designed as an online arcade, filled with the games of my own making.
+These games were either made before this class began, or were specifically created for various assignments in creating this site.
+Apart from these games, this site also includes an about me and contact me page, pages for other homework that were not specifallcy game related, and a whole section that presents our in-class examples and exersices from each week.
+I hope you all have fun in my Kewl Korner of the internet!
+
+Gobblet! tm
+Game created by Thierry Denoual (C) 2000, Blue Orange Games Co.
+All rights reserved, the Gobblet logo and the Gobblet board are a trademark of Blue Orange Games.
+Patent Pending. For more information, rules of the game or to contact [us], join [us] on the web at:
+(bold)www.gobblet.com(link: https://www.blueorangegames.com/index.php/games/gobblet)
+
+This online version of Gobblet was fan-made by Jacob Wiles for educational purposes only.
+Gobblet, as well as it's logo and board, are owned by Blue Orange Games and Thierry Denual.
+Please support the official creators by purchasing the original product.
+If you feel unconfortable playing an unoffical and unapproved version of this game, check out [http://www.boardspace.net/english/about_gobblet.html] as another online version of Gobblet. This site claims to have been able to locate Thierry Denoual who gave permission to develop their version.
