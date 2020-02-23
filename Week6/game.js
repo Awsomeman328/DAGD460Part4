@@ -30,7 +30,7 @@ class Game {
         
         this.sprite = new Sprite("Darkrai.png");
     }
-    fill(color = "#000"){
+    fill(color = "#000"){ // clears the canvas back to the color passed in.
         this.gfx.fillStyle = color;
         this.gfx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
