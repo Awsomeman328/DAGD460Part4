@@ -22,8 +22,8 @@ class Game {
         //console.log(this.canvas);
         this.gfx = this.canvas.getContext("2d");
         //console.log(this.gfx);
-        this.canvas.width = this.canvas.clientWidth;
-        this.canvas.height = this.canvas.clientHeight;
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
         
         // add our own fillEllipse() to gfx:
         this.gfx.fillEllipse = (x, y, rx, ry)=> {
@@ -62,7 +62,7 @@ class Game {
         
 
         // draw:
-        this.fill("rgba(200, 50, 150)"); // clear screen
+        this.fill("#00b"); // clear screen
         
         
         //console.log(this);
