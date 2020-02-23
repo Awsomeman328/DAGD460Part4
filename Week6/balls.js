@@ -65,7 +65,6 @@ class Ball {
 const balls = [];
 for(let i = 0; i < 100; i++){
     balls.push(new Ball());
-    balls.push(new Ball());
 }
 
 // setup mouse
