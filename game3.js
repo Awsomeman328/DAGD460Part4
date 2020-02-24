@@ -3,15 +3,21 @@ const rand = (min, max) => {
     return Math.random() * (max - min) + min;
 };
 
+const randF = (min, max) => {
+    return parseFloat( Math.random() * (max - min) + min );
+};
+
+const balls = [];
+
 class Game {
     constructor(id){
         this.canvas = document.getElementById(id);
         //console.log(this.canvas);
         this.gfx = this.canvas.getContext("2d");
-        //console.log(this.gfx);
+        console.log(this.gfx);
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
-        
+
         // add our own fillEllipse() to gfx:
         this.gfx.fillEllipse = (x, y, rx, ry)=> {
             this.gfx.beginPath();
@@ -19,7 +25,10 @@ class Game {
             this.gfx.fill();
         };
 
-        // new Player(){ x = 42, y = 40 }
+        balls.push(new Player("player", 42, 40, 50, 255, 0, 0));
+        for(let i = 0; i < 13; i++){
+            balls.push(new Enemy("enemy", rand(0, window.innerWidth), rand(0, window.innerHeight), 50, 0, 0, 0, randF(-1, 1), randF(-1, 1)));
+        }
 
         this.time = {
             now:0,
@@ -33,43 +42,49 @@ class Game {
             }
         };
     }
-    
+
     fill(color = "#000"){ // clears the canvas back to the color passed in.
         this.gfx.fillStyle = color;
         this.gfx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
     tick(now){ // This is our Update Method, our GameLoop.
 
-        //calc delta time:
+        // calc delta time:
         this.time.calc(now);
         //console.log(this.time.dt);
-        
+
+        // calc physics:
+
+
+        // calc collisions:
+        balls.forEach(b => b.detectCollision());
+
         // update:
         //console.log("tick");
-        balls.forEach(b => b.update());
-        
+        balls.forEach(c => c.update());
+
 
         // draw:
         this.fill("#00b"); // clear screen
-        
-        
+
+
         //console.log(this);
         requestAnimationFrame((t)=>{this.tick(t); } );
     }
-    
+
 }
 
 /*
 TO DO LIST:
 
 Part 1: BALLS!
-TODO: Set Blue Background
-TODO: Spawn 1 red ball and 3 black balls
-TODO: Have Red Ball follow the mouse
-TODO: Have the 3 black balls move in random directions
-TODO: Give all of the balls radial collision detection
+DONE: Set Blue Background
+DONE: Spawn 1 red ball and 3 black balls
+DONE: Have Red Ball follow the mouse
+DONE: Have the 3 black balls move in random directions
+DONE: Give all of the balls radial collision detection
     -Since all the balls will be in the same array, make sure the collision detection first checks if the 'current ball' is itself.
-TODO: Have the black balls bounce off the edge of the canvas/screen/window
+DONE: Have the black balls bounce off the edge of the canvas/screen/window
 TODO: Have the black balls bounce off of each other
 TODO: Every 20 sec:
     -Have White text fade in in the middle of the screen
@@ -191,24 +206,27 @@ document.addEventListener("mousemove", e => {
 });
 
 class Ball {
-    constructor(){
+    constructor(ballType, px, py, size, red, green, blue){
         // props:
-        this.x = rand(0, 500);
-        this.y = rand(0, 500);
+        this.x = px;
+        this.y = py;
 
         this.vx = 1;
         this.vy = 1;
 
-        this.size = 100;
+        this.size = size;
         this.mass = this.size / 20;
 
-        const r = 2;
-        const g = 25;
-        const b = 255;
+        const r = red;
+        const g = green;
+        const b = blue;
 
         this.color = "rgb("+r+","+g+","+b+")";
 
         //this.color = "hsl(360, 100%, 50%)";
+
+        this.collisionInfo = [false];
+        //console.log(this.collisionInfo);
 
         this.div = document.createElement("div");
         document.body.appendChild(this.div);
@@ -242,23 +260,96 @@ class Ball {
 
         this.updateStyle();
     }
+    detectCollision(){
+        for(let i = 0; i < balls.length; i++){
+            if(balls[i] == this) {//console.log("Oh, it's me! " + this);
+            }
+            else {
+                var cx = this.x - balls[i].x;
+                var cy = this.y - balls[i].y;
+                var distance = Math.sqrt(cx * cx + cy * cy);
+                var minDist = this.size/2 + balls[i].size/2;
+
+                if(distance < minDist){
+                    //console.log("Collision detected! " + this.ballType + " and " + balls[i].ballType);
+                    let angle = Math.atan2(cy, cx);
+                    let targetX = this.x + Math.cos(angle) * minDist;
+                    let targetY = this.y + Math.sin(angle) * minDist;
+                    //Give us what type of ball it is and it's x and y positions.
+                    this.collisionInfo = [ true, balls[i].ballType, balls[i].x, balls[i].y ];
+                    //console.log(this.collisionInfo);
+                }
+                else this.collisionInfo = [false];
+            }
+        }
+    }
+
 };
 
-const balls = [];
-
-class Enemy extends Ball {
-    constructor(){
-        super();
+class Player extends Ball {
+    constructor(ballType, px, py, size, red, green, blue){
+        super(ballType, px, py, size, red, green, blue);
+        this.ballType = "player";
     }
     draw(){
         super.draw();
     }
+    update(){
+        this.x = mouse.x;
+        this.y = mouse.y;
+
+        super.updateStyle();
+    }
+}
+
+class Enemy extends Ball {
+    constructor(ballType, px, py, size, red, green, blue, iDirX, iDirY){
+        super(ballType, px, py, size, red, green, blue);
+        this.ballType = "enemy";
+        this.dx = iDirX;
+        this.dy = iDirY;
+    }
+    draw(){
+        super.draw();
+    }
+    update(){
+        //const ax = this.dx / this.mass;
+        //const ay = this.dy / this.mass;
+
+        this.vx = this.dx;
+        this.vy = this.dy;
+
+        this.x += this.vx;
+        this.y += this.vy;
+
+        console.log(this.collisionInfo);
+        if(this.collisionInfo[0]) {
+            //console.log("collisionInfo iS NOT null!");
+            if(this.collisionInfo[1] = "enemy") {
+                var cx = this.x - this.collisionInfo[2];
+                var cy = this.y - this.collisionInfo[3];
+                //console.log("changing directions!" + cx + " " + cy);
+                //If cx is positive, then this object is to the right of the colliding object
+                //If cx is negative, then this object is to the left of the colliding object
+                //If cy is positive, then this object is below the colliding object
+                //If cy is negative, then this object is above the colliding object
+                if(cx > 0) this.dx = Math.abs(this.dy);
+                if(cx < 0) this.dx = -Math.abs(this.dx);
+                if(cy > 0) this.dy = Math.abs(this.dy);
+                if(cy < 0) this.dy = - Math.abs(this.dy);
+            }
+        }
+
+        if(this.x - this.size/2 <= 0) this.dx = Math.abs(this.dy);
+        if(this.x + this.size/2 >= game.canvas.width) this.dx = -Math.abs(this.dx);
+        if(this.y - this.size/2 <= 0) this.dy = Math.abs(this.dy);
+        if(this.y + this.size/2 >= game.canvas.height) this.dy = - Math.abs(this.dy);
+
+        super.updateStyle();
+    }
 }
 
 const game = new Game("game");
-for(let i = 0; i < 3; i++){
-    balls.push(new Ball());
-}
 game.tick();
 
 
