@@ -99,7 +99,7 @@ class Player {
 	}
 	draw(){
 
-		this.aabb.draw();
+		//this.aabb.draw();
 
 		const gfx = game.view.gfx;
 		gfx.drawImage(this.imgs[this.animFrame], this.x + this.ax, this.y + this.ax);

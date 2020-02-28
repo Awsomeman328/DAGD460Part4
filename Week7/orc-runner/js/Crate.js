@@ -22,6 +22,6 @@ class Crate {
 	draw(){
 		//game.view.gfx.drawImage(sprites.crate, this.x, this.y);
 		game.view.gfx.drawImage(this.img, this.x + this.ax, this.y + this.ay);
-		this.aabb.draw();
+		//this.aabb.draw();
 	}
 }
