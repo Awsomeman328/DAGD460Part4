@@ -4,12 +4,18 @@ class Player {
 		this.isGrounded = false;
 
 		// position:
-		this.x = 0;
-		this.y = 0;
+		this.x = 500;
+		this.y = 670;
 		this.pos = new Vector(0, 0);
 		// velocity:
-		this.vx = 200;
+		this.vx = 0;
 		this.vy = 0;
+
+		// gravity:
+		this.g = 2000;
+
+		// jump velocity
+		this.jv = -1200;
 
 		// setup anchor point:
 		this.ax = -48;
@@ -34,7 +40,7 @@ class Player {
 	}
 	update(){
 
-		this.moveHorizontal();
+		this.move();
 
 		// go to next frame in animation:
 		/*this.animDelay -= game.time.dt;
@@ -44,38 +50,37 @@ class Player {
 			this.animDelay = 1/15;
 		}*/
 
-		console.log(this.isGrounded);
+		/*
+		// I want to: if the player is grounded, when they jump, lower gravity. 
+		// Then, if they are not grounded, keep gravity low if jump is still bring pressed down
+		// If they are not grounded and jump is no longer being pressed, then gravity returns to normal, even if it gets pressed again.
+
+		//console.log(this.isGrounded);
 		if(this.isGrounded && keyboard.onDown( mapping.jump() )){
-			this.vy = -600;
+			this.vy = this.jv;
 		}
+
 
 		// apply gravity
-		this.vy += 1200 * game.time.dt;
+		this.vy += this.g * game.time.dt;
 		//console.log(this.y);
-		// euler physics step:
-		this.x += this.vx * game.time.dt;
-		this.y += this.vy * game.time.dt;
-
-		// clamp to ground
-		this.isGrounded = false;
-		const ground = 366;
-		if(this.y > ground){
-			this.y = ground;
-			this.vy = 0;
-			this.isGrounded = true;
-		}
+		*/
 
 		this.aabb.center.x = this.x;
 		this.aabb.center.y = this.y;
 		this.aabb.recalc();
 
 	}
-	moveHorizontal(){
-		let inputX = 0;
+	move(){
+		var inputX = 0;
+		var inputY = 0;
 
 		if(keyboard.isDown( mapping.right() )) inputX++;
 		if(keyboard.isDown( mapping.left() )) inputX--;
 		//console.log(inputX);
+		if(keyboard.isDown( mapping.up() )) inputY--;
+		if(keyboard.isDown( mapping.down() )) inputY++;
+		//console.log(inputY);
 
 		const moveAccel = 1200;
 		const maxVel = 400;
@@ -96,6 +101,53 @@ class Player {
 				if(this.vx < 0) this.vx = 0;
 			}
 		}
+
+		if(inputY != 0){
+			//console.log("I WANT TO MOVE!");
+			this.vy += moveAccel * game.time.dt * inputY;
+			if(this.vy > maxVel) this.vy = maxVel;
+			if(this.vy <-maxVel) this.vy = -maxVel;
+		} else {
+			// slow down
+			if(this.vy < 0){ // moving left
+				this.vy += moveAccel * game.time.dt;
+				if(this.vy > 0) this.vy = 0;
+			}
+			if(this.vy > 0){ // moving right
+				this.vy += -moveAccel * game.time.dt;
+				if(this.vy < 0) this.vy = 0;
+			}
+		}
+
+		// clamp to the edges of the screen
+		const wall = 1255;
+		if(this.x > wall){
+			this.x = wall;
+			this.vx = 0;
+		}
+		if(this.x < 25){
+			this.x = 25;
+			this.vx = 0;
+		}
+
+		// clamp to ground
+		this.isGrounded = false;
+		const ground = 682;
+		if(this.y > ground){
+			this.y = ground;
+			this.vy = 0;
+			this.isGrounded = true;
+		}
+
+		if(this.y < 38){
+			this.y = 38;
+			this.vy = 0;
+		}
+
+		// euler physics step:
+		this.x += this.vx * game.time.dt;
+		this.y += this.vy * game.time.dt;
+
 	}
 	draw(){
 

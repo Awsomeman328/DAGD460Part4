@@ -26,8 +26,8 @@ class AABB {
 
 		return true;
 	}
-	draw(){
-		game.view.gfx.fillStyle = "#f00";
+	draw(color = "#f00"){
+		game.view.gfx.fillStyle = color
 		game.view.gfx.fillRect(this.min.x, this.min.y, this.halfSize.w * 2, this.halfSize.h * 2);
 	}
 }

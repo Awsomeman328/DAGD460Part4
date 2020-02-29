@@ -5,6 +5,8 @@ const keys = {
 
 	a:65,
 	d:68,
+	s:83,
+	w:87,
 	space:32,
 	left:37,
 	up:38,
@@ -15,8 +17,9 @@ const keys = {
 const mapping = {
 	right(){return [keys.d, keys.right]; },
 	left(){ return [keys.a, keys.left]; },
-	jump(){ return keys.space; }
-
+	jump(){ return keys.space; },
+	up(){return [keys.w, keys.up]; },
+	down(){return [keys.s, keys.down]; }
 }
 
 const keyboard = {
@@ -51,7 +54,7 @@ const keyboard = {
 		this.prev = this.keys.slice(0);
 	},
 	updateKey(e, value){
-		//console.log(e.keyCode + (value ? " is down" : " is up"));
+		console.log(e.keyCode + (value ? " is down" : " is up"));
 
 		this.keys[e.keyCode] = value;
 	},

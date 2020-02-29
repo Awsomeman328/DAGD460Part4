@@ -28,7 +28,7 @@ class Game {
 		if(this.scene) this.scene.update();
 
 		// draw game objects:
-		this.view.gfx.fillStyle="#888";
+		this.view.gfx.fillStyle="#888"; // clear the canvas
 		this.view.gfx.fillRect(0,0,this.view.canvas.width,this.view.canvas.height);
 		if(this.scene) this.scene.draw();
 
