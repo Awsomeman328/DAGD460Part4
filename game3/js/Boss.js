@@ -11,14 +11,39 @@ class Boss {
 		this.vx = 0;
 		this.vy = 0;
 
+		this.w = 76;
+		this.h = 76;
+
 		// setup anchor point:
 		this.ax = -48;
 		this.ay = -48;
 
 		// setup collision:
 		this.aabb = new AABB(76, 76);
+
+		// setup behavior
+		this.bossState = "idle";
+		this.idleTimer = 2;
 	}
 	update(){
+		this.clearAtkHitboxes();
+		switch(this.bossState){
+			case "idle":
+				game.scene.atks = [new ATK(this.x, this.y, 0, 0, this.w * 2, this.h * 2)];
+				break;
+			case "weak":
+
+				break;
+			case "dead":
+
+				break;
+			case "atks":
+
+				break;
+			default:
+
+		}
+
 		this.move();
 
 		this.aabb.center.x = this.x;
@@ -26,12 +51,18 @@ class Boss {
 		this.aabb.recalc();
 
 	}
+	clearAtkHitboxes(){
+		game.scene.atks.dead = true;
+	}
 	move(){
 		var inputX = 0;
 		var inputY = 0;
 
 		const moveAccel = 1200;
 		const maxVel = 400;
+
+		this.x += this.vx;
+		this.y += this.vy;
 	}
 	takeDamage(amount){
 		this.health -= amount;

@@ -1,5 +1,6 @@
 class ATK{
-	constructor(x, y, vx, vy, w, h){
+	constructor(x, y, vx, vy, w, h, vw, vh){
+		// position
 		this.x = x;
 		this.y = y;
 
@@ -11,6 +12,10 @@ class ATK{
 		this.width = w;
 		this.height = h;
 
+		// size change:
+		this.vw = vw;
+		this.vh = vh;
+
 		// setup anchor point:
 		this.ax = -w/2;
 		this.ay = -h/2;
@@ -21,6 +26,12 @@ class ATK{
 		this.dead = false;
 	}
 	update(){
+		this.x += this.vx;
+		this.y += this.vy;
+
+		this.width += this.vw;
+		this.height += this.vh;
+
 		this.aabb.center.x = this.x;
 		this.aabb.center.y = this.y;
 		this.aabb.recalc();
