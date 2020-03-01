@@ -1,8 +1,11 @@
 class Boss {
 	constructor(){
+		this.maxHealth = 1000;
+		this.health = this.maxHealth;
+
 		// position:
-		this.x = 500;
-		this.y = 670;
+		this.x = 1000;
+		this.y = 100;
 		this.pos = new Vector(0, 0);
 		// velocity:
 		this.vx = 0;
@@ -30,10 +33,18 @@ class Boss {
 		const moveAccel = 1200;
 		const maxVel = 400;
 	}
+	takeDamage(amount){
+		this.health -= amount;
+		if(this.health < 0) {
+			this.health = 0;
+			this.dead = true;
+		}
+		if(this.health > this.maxHealth) this.health = this.maxHealth;
+	}
 	draw(){
-		this.aabb.draw("#666");
+		this.aabb.draw("#000");
 
 		const gfx = game.view.gfx;
-		//gfx.drawImage(this.imgs[this.animFrame], this.x + this.ax, this.y + this.ax);
+		//game.view.gfx.fillRect(this.min.x, this.min.y, this.halfSize.w * 2, this.halfSize.h * 2);
 	}
 }

@@ -54,7 +54,7 @@ const keyboard = {
 		this.prev = this.keys.slice(0);
 	},
 	updateKey(e, value){
-		console.log(e.keyCode + (value ? " is down" : " is up"));
+		//console.log(e.keyCode + (value ? " is down" : " is up"));
 
 		this.keys[e.keyCode] = value;
 	},

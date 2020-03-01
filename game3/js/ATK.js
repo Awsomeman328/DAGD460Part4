@@ -1,11 +1,11 @@
-class Platform{
-	constructor(y, w, h){
-		this.x = 1000;
+class ATK{
+	constructor(x, y, vx, vy, w, h){
+		this.x = x;
 		this.y = y;
 
 		// velocity:
-		this.vx = 200;
-		this.vy = 0;
+		this.vx = vx;
+		this.vy = vy;
 
 		// size:
 		this.width = w;
@@ -21,13 +21,11 @@ class Platform{
 		this.dead = false;
 	}
 	update(){
-		
 		this.aabb.center.x = this.x;
 		this.aabb.center.y = this.y;
 		this.aabb.recalc();
 	}
 	draw(){
 		this.aabb.draw("#456");
-
 	}
 }

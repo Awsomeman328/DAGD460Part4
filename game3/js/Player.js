@@ -1,5 +1,8 @@
 class Player {
 	constructor(){
+		this.maxHealth = 200;
+		this.health = this.maxHealth;
+		this.dead = false;
 
 		this.isGrounded = false;
 
@@ -14,15 +17,19 @@ class Player {
 		// gravity:
 		this.g = 2000;
 
-		// jump velocity
+		// jump velocity:
 		this.jv = -1200;
 
+		// setup size:
+		this.w = 50;
+		this.h = 76;
+
 		// setup anchor point:
-		this.ax = -48;
-		this.ay = -48;
+		this.ax = -this.w/2;
+		this.ay = -this.h/2;
 
 		// setup collision:
-		this.aabb = new AABB(50, 76);
+		this.aabb = new AABB(this.w, this.h);
 
 		/*
 		// load all images:
@@ -65,6 +72,11 @@ class Player {
 		this.vy += this.g * game.time.dt;
 		//console.log(this.y);
 		*/
+
+		if(keyboard.isDown(107)) this.health++;
+		if(keyboard.isDown(109)) this.health--;
+		if(this.health < 0) this.health = 0;
+		if(this.health > this.maxHealth) this.health = this.maxHealth;
 
 		this.aabb.center.x = this.x;
 		this.aabb.center.y = this.y;
@@ -148,13 +160,23 @@ class Player {
 		this.x += this.vx * game.time.dt;
 		this.y += this.vy * game.time.dt;
 
+
+
 	}
 	draw(){
-
 		this.aabb.draw();
 
 		const gfx = game.view.gfx;
-		//gfx.drawImage(this.imgs[this.animFrame], this.x + this.ax, this.y + this.ax);
+		//gfx.fillStyle = "#700";
+		//game.view.gfx.fillRect(this.x - (this.w + this.ax), this.y - (this.h + this.ay), this.x + (this.w + this.ax), this.y + (this.h + this.ay));
+	}
+	takeDamage(amount){
+		this.health -= amount;
+		if(this.health < 0) {
+			this.health = 0;
+			this.dead = true;
+		}
+		if(this.health > this.maxHealth) this.health = this.maxHealth;
 	}
 }
 
