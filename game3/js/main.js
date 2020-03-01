@@ -9,9 +9,9 @@ const sprites = {
 
 sprites.setup();
 */
+
 const game = new Game();
 game.start("game");
-
 /*
 Ok, so here is my final game concept:
 The player can move around with either the WASD keys, or the arrow keys. (No gravity.)

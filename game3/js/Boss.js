@@ -30,18 +30,43 @@ class Boss {
 		switch(this.bossState){
 			case "idle":
 				game.scene.atks = [new ATK(this.x, this.y, 0, 0, this.w * 2, this.h * 2)];
+				this.vx = Math.random() * (100 - -100) + -100;
+				this.vy = Math.random() * (100 - -100) + -100;
+				this.idleTimer -= game.time.dt;
+				if(this.idleTimer < 0) {
+					this.idleTimer = Math.random() * (2 - 1) + 1;
+					this.bossState = "atks";
+				}
 				break;
 			case "weak":
-
+				this.vx = Math.random() * (10 - -10) + -10;
+				this.vy = Math.random() * (10 - -10) + -10;
+				this.idleTimer -= game.time.dt;
+				if(this.idleTimer < 0) {
+					this.idleTimer = Math.random() * (2 - 1) + 1;
+					this.bossState = "idle";
+				}
 				break;
 			case "dead":
-
+				this.vx = 0;
+				this.vy = 0;
+				this.dead = true;
 				break;
 			case "atks":
-
+				game.scene.atks = [new ATK(this.x, this.y, 0, 0, this.w * 4, this.h * 4)];
+				this.vx = 0;
+				this.vy = 0;
+				this.x = Math.random() * (1200 - 80) + 80;
+				this.y = Math.random() * (600 - 120) + 120;
+				this.idleTimer -= game.time.dt;
+				if(this.idleTimer < 0) {
+					this.idleTimer = Math.random() * (2 - 1) + 1;
+					this.bossState = "weak";
+				}
 				break;
 			default:
-
+				game.scene.atks = [new ATK(this.x, this.y, 0, 0, this.w * 2, this.h * 2)];
+				this.bossState = "idle";
 		}
 
 		this.move();
@@ -52,7 +77,9 @@ class Boss {
 
 	}
 	clearAtkHitboxes(){
-		game.scene.atks.dead = true;
+		for(let i = game.scene.atks.length - 1; i >= 0; i--){
+			game.scene.atks[i].dead = true;		
+		}
 	}
 	move(){
 		var inputX = 0;
@@ -61,8 +88,8 @@ class Boss {
 		const moveAccel = 1200;
 		const maxVel = 400;
 
-		this.x += this.vx;
-		this.y += this.vy;
+		this.x += this.vx * game.time.dt;
+		this.y += this.vy * game.time.dt;
 	}
 	takeDamage(amount){
 		this.health -= amount;

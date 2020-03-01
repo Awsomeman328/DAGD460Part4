@@ -26,11 +26,11 @@ class ATK{
 		this.dead = false;
 	}
 	update(){
-		this.x += this.vx;
-		this.y += this.vy;
+		this.x += this.vx * game.time.dt;
+		this.y += this.vy * game.time.dt;
 
-		this.width += this.vw;
-		this.height += this.vh;
+		this.width += this.vw * game.time.dt;
+		this.height += this.vh * game.time.dt;
 
 		this.aabb.center.x = this.x;
 		this.aabb.center.y = this.y;
