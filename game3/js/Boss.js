@@ -49,7 +49,7 @@ class Boss {
 				this.bossState = "atks";
 				this.idleTimer = parseFloat( Math.random() * (2 - 1) + 1);
 				this.atkMode = 1//Math.random() * (3);
-				this.atkDirection = 0;//Math.random() * (3);
+				this.atkDirection = Math.random() * (3);
 				this.ready4Atk = false;
 				this.firstTime = true;
 				this.inPosition = false;
@@ -194,15 +194,15 @@ class Boss {
 				break;
 			case 1: // 0.5-1.499
 				// attack from the left
-				
+				this.vx += 10;
 				break;
 			case 2: // 1.5-2.499
 				// attack from the right
-				
+				this.vx -= 10;
 				break;
 			case 3: // 2.5-3
 				// attack from below
-				
+				this.vy -= 10;
 				break;
 			default:
 				this.atkDirection = 1;
@@ -218,15 +218,15 @@ class Boss {
 				break;
 			case 1: // 0.5-1.499
 				// attack from the left
-				
+				this.y = game.scene.player.y;
 				break;
 			case 2: // 1.5-2.499
 				// attack from the right
-				
+				this.y = game.scene.player.y;
 				break;
 			case 3: // 2.5-3
 				// attack from below
-				
+				this.x = game.scene.player.x;
 				break;
 			default:
 				this.atkDirection = 1;
@@ -237,9 +237,10 @@ class Boss {
 		switch(Math.round(this.atkDirection)){
 			case 0: // 0 - 0.499
 			// attack from above
+			this.x = game.scene.player.x;
 			if(this.firstTime){
 				console.log("teleporting to position");
-				this.x = game.scene.player.x;
+				
 				this.y = -100;
 				this.vx = 0;
 				this.vy = 10;
@@ -259,15 +260,72 @@ class Boss {
 				break;
 			case 1: // 0.5-1.499
 				// attack from the left
+				this.y = game.scene.player.y;
+				if(this.firstTime){
+				console.log("teleporting to position");
+				this.x = -100;
 				
+				this.vx = 10;
+				this.vy = 0;
+				this.firstTime = false;
+			} else if(this.x <= 0){
+				console.log("coming back!");
+				this.vx += 10;
+			} else{
+				console.log("slowing down...");
+				this.vx -= 10;
+				if(this.vx <= 0) {
+					console.log("I've stopped");
+					this.vx = 0;
+					this.inPosition = true;
+					}
+				}
 				break;
 			case 2: // 1.5-2.499
 				// attack from the right
+				this.y = game.scene.player.y;
+				if(this.firstTime){
+				console.log("teleporting to position");
+				this.x = 1380;
 				
+				this.vx = -10;
+				this.vy = 0;
+				this.firstTime = false;
+			} else if(this.x >= 1280){
+				console.log("coming back!");
+				this.vx -= 10;
+			} else{
+				console.log("slowing down...");
+				this.vx += 10;
+				if(this.vx >= 0) {
+					console.log("I've stopped");
+					this.vx = 0;
+					this.inPosition = true;
+					}
+				}
 				break;
 			case 3: // 2.5-3
 				// attack from below
+				this.x = game.scene.player.x;
+				if(this.firstTime){
+				console.log("teleporting to position");
 				
+				this.y = 820;
+				this.vx = 0;
+				this.vy = -10;
+				this.firstTime = false;
+			} else if(this.y >= 720){
+				console.log("coming back!");
+				this.vy -= 10;
+			} else{
+				console.log("slowing down...");
+				this.vy += 10;
+				if(this.vy >= 0) {
+					console.log("I've stopped");
+					this.vy = 0;
+					this.inPosition = true;
+					}
+				}
 				break;
 			default:
 				this.atkDirection = 1;
