@@ -6,3 +6,11 @@ body{
 	margin: 10px auto;
 	border: 1px solid #fff;
 }
+p {
+	width: 1280px;
+	margin: auto;
+}
+ul {
+	width: 1280px;
+	margin: auto;
+}
