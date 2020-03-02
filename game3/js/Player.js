@@ -3,6 +3,7 @@ class Player {
 		this.maxHealth = 200;
 		this.health = this.maxHealth;
 		this.dead = false;
+		this.regenTimer = 1;
 
 		this.isGrounded = false;
 
@@ -75,6 +76,11 @@ class Player {
 
 		if(keyboard.isDown(107)) this.health++;
 		if(keyboard.isDown(109)) this.health--;
+		this.regenTimer -= game.time.dt;
+		if(this.regenTimer < 0){
+			this.regenTimer = 1;
+			this.health ++;
+		}
 		if(this.health < 0) this.health = 0;
 		if(this.health > this.maxHealth) this.health = this.maxHealth;
 

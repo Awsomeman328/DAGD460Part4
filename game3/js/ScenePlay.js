@@ -37,7 +37,7 @@ class ScenePlay {
 
 				if(this.atks[i].aabb.overlaps(this.player.aabb)){
 					if(this.collisionStop < 1000){
-						console.log("collision! " + this.atks[i]);
+						//console.log("collision! " + this.atks[i]);
 						this.collisionStop++;
 					}
 					// do damage / lose points
@@ -46,7 +46,8 @@ class ScenePlay {
 				}
 
 				if(this.atks[i].dead){
-					this.atks.splice(i, 1);
+					if(this.atks[i].vw == 0 || this.atks[i].vh == 0) this.atks.splice(i, 1);
+					
 				}
 			}
 			if(this.boss && this.boss.aabb.overlaps(this.player.aabb)){

@@ -27,12 +27,14 @@ class Boss {
 		// setup behavior
 		this.bossState = "idle";
 		this.idleTimer = 2;
-		this.atkMode = 1;//Math.random() * (3);
+		this.atkMode = Math.random() * (3);
 		this.atkDirection = 0;//Math.random() * (3);
 		this.ready4Atk = false;
 		this.firstTime = true;
 		this.inPosition = false;
+		this.atkTimer = Math.random() + 4;
 		this.atkOver = false;
+		this.beamRange = 1;
 
 		this.easing = 0.05;
 		
@@ -48,12 +50,14 @@ class Boss {
 			if(this.idleTimer < 0) {
 				this.bossState = "atks";
 				this.idleTimer = parseFloat( Math.random() * (2 - 1) + 1);
-				this.atkMode = 1//Math.random() * (3);
+				this.atkMode = Math.random() * (3);
 				this.atkDirection = Math.random() * (3);
 				this.ready4Atk = false;
 				this.firstTime = true;
 				this.inPosition = false;
+				this.atkTimer = Math.random() + 4;
 				this.atkOver = false;
+				this.beamRange = 1;
 			}
 			break;
 
@@ -121,7 +125,7 @@ class Boss {
 
 										//console.log("I'm currently at x: " + this.x + " y: " + this.y);
 
-										if(Math.round(this.x) == 640 && Math.round(this.y) == 360){
+										if(this.x > 600 && this.x < 700 && this.y > 300 && this.y < 400){
 											console.log("I feel weak...");
 											this.atkMode = -1;
 										}
@@ -141,6 +145,47 @@ class Boss {
 
 					case 2: // pick randomly from NSEW to go off screen in that direction. Then peep in, aligning self with player on 1 axis.
 						// After that, spawn a hit box that flies towards the player. Do this 3 times then go to weak.
+						if(this.ready4Atk == false) this.chooseDirection();
+						else{
+							//this.clearAtkHitboxes();
+							if(this.inPosition == false)this.comeBack();
+							else {
+								
+								this.idleTimer -= game.time.dt;
+								if(this.idleTimer < 0){
+									//game.scene.atks = [new ATK(this.x, this.y, 0, 0, this.w * 4, this.h * 4)];
+									if(this.atkOver == false) {
+										//projectileAtk
+										this.atkOver = true;
+									}
+									else{
+										this.atkOver = true;
+										//this.clearAtkHitboxes();
+										console.log("returning to center screen...");
+
+										this.vx = 0;
+										this.vy = 0;
+
+										this.dx = 640 - this.x;
+										this.x += this.dx * this.easing;
+
+										this.dy = 360 - this.y
+										this.y += this.dy * this.easing;
+
+										//console.log("I'm currently at x: " + this.x + " y: " + this.y);
+
+										if(this.x > 600 && this.x < 700 && this.y > 300 && this.y < 400){
+											console.log("I feel weak...");
+											this.atkMode = -1;
+										}
+									}
+								} else {
+									this.keepAlignWithPlayer();
+									
+								}
+							}
+						}
+						/*
 						console.log("FIRE!");
 						if(this.ready4Atk == false) this.chooseDirection();
 						else{
@@ -149,11 +194,56 @@ class Boss {
 						this.idleTimer -= game.time.dt;
 						if(this.idleTimer < 0) {
 							this.atkMode = -1;
-						}
+						}*/
 						break;
 
 					case 3: // pick randomly from NSEW to go off screen in that direction. Then peep in, aligning self with player on 1 axis.
 						// After that, spawn a hit box that streatches accross the screen. Once there, squish all the hitboxes to nothing and go to weak.
+						if(this.ready4Atk == false) this.chooseDirection();
+						else{
+							//this.clearAtkHitboxes();
+							if(this.inPosition == false)this.comeBack();
+							else {
+								
+								this.idleTimer -= game.time.dt;
+								if(this.idleTimer < 0){
+									//game.scene.atks = [new ATK(this.x, this.y, 0, 0, this.w * 4, this.h * 4)];
+									if(this.atkOver == false) {
+										this.beamATK();
+										this.atkTimer -= game.time.dt;
+											if(this.atkTimer < 0){
+												this.atkOver = true;
+												this.clearAtkHitboxes();
+											}
+									}
+									else{
+										this.atkOver = true;
+										//this.clearAtkHitboxes();
+										console.log("returning to center screen...");
+
+										this.vx = 0;
+										this.vy = 0;
+
+										this.dx = 640 - this.x;
+										this.x += this.dx * this.easing;
+
+										this.dy = 360 - this.y
+										this.y += this.dy * this.easing;
+
+										//console.log("I'm currently at x: " + this.x + " y: " + this.y);
+
+										if(this.x > 600 && this.x < 700 && this.y > 300 && this.y < 400){
+											console.log("I feel weak...");
+											this.atkMode = -1;
+										}
+									}
+								} else {
+									this.keepAlignWithPlayer();
+									
+								}
+							}
+						}
+						/*
 						console.log("BEAM!");
 						if(this.ready4Atk == false) this.chooseDirection();
 						else{
@@ -162,7 +252,7 @@ class Boss {
 						this.idleTimer -= game.time.dt;
 						if(this.idleTimer < 0) {
 							this.atkMode = -1;
-						}
+						}*/
 						break;
 
 					case -1: // change atkMode to this case to change bossState to "weak".
@@ -184,6 +274,32 @@ class Boss {
 			this.aabb.center.y = this.y;
 			this.aabb.recalc();
 		}
+
+	beamATK(){
+		console.log("BEAM!");
+		this.beamRange++;
+		if(this.beamRange > 40) this.beamRange = 40;
+		switch(Math.round(this.atkDirection)){
+			case 0: // 0 - 0.499
+				// attack from above
+				game.scene.atks = [new ATK(this.x, this.y, 0, 0, this.w * 4, this.h * this.beamRange, 0, 10)];
+				break;
+			case 1: // 0.5-1.499
+				// attack from the left
+				game.scene.atks = [new ATK(this.x, this.y, 0, 0, this.w * this.beamRange, this.h * 4, 10, 0)];
+				break;
+			case 2: // 1.5-2.499
+				// attack from the right
+				game.scene.atks = [new ATK(this.x, this.y, 0, 0, this.w * this.beamRange, this.h * 4, 10, 0)];
+				break;
+			case 3: // 2.5-3
+				// attack from below
+				game.scene.atks = [new ATK(this.x, this.y, 0, 0, this.w * 4, this.h * this.beamRange, 0, 10)];
+				break;
+			default:
+				this.atkDirection = 1;
+			}
+	}
 
 	chargeATK(){
 		console.log("CHARGE!");
@@ -214,19 +330,19 @@ class Boss {
 		switch(Math.round(this.atkDirection)){
 			case 0: // 0 - 0.499
 			// attack from above
-				this.x = game.scene.player.x;
+				if(game.scene.player) this.x = game.scene.player.x;
 				break;
 			case 1: // 0.5-1.499
 				// attack from the left
-				this.y = game.scene.player.y;
+				if(game.scene.player) this.y = game.scene.player.y;
 				break;
 			case 2: // 1.5-2.499
 				// attack from the right
-				this.y = game.scene.player.y;
+				if(game.scene.player) this.y = game.scene.player.y;
 				break;
 			case 3: // 2.5-3
 				// attack from below
-				this.x = game.scene.player.x;
+				if(game.scene.player) this.x = game.scene.player.x;
 				break;
 			default:
 				this.atkDirection = 1;
@@ -237,7 +353,7 @@ class Boss {
 		switch(Math.round(this.atkDirection)){
 			case 0: // 0 - 0.499
 			// attack from above
-			this.x = game.scene.player.x;
+			if(game.scene.player) this.x = game.scene.player.x;
 			if(this.firstTime){
 				console.log("teleporting to position");
 				
@@ -260,7 +376,7 @@ class Boss {
 				break;
 			case 1: // 0.5-1.499
 				// attack from the left
-				this.y = game.scene.player.y;
+				if(game.scene.player) this.y = game.scene.player.y;
 				if(this.firstTime){
 				console.log("teleporting to position");
 				this.x = -100;
@@ -283,7 +399,7 @@ class Boss {
 				break;
 			case 2: // 1.5-2.499
 				// attack from the right
-				this.y = game.scene.player.y;
+				if(game.scene.player) this.y = game.scene.player.y;
 				if(this.firstTime){
 				console.log("teleporting to position");
 				this.x = 1380;
@@ -306,7 +422,7 @@ class Boss {
 				break;
 			case 3: // 2.5-3
 				// attack from below
-				this.x = game.scene.player.x;
+				if(game.scene.player) this.x = game.scene.player.x;
 				if(this.firstTime){
 				console.log("teleporting to position");
 				

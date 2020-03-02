@@ -1,5 +1,5 @@
 class ATK{
-	constructor(x, y, vx, vy, w, h, vw, vh){
+	constructor(x, y, vx, vy, w, h, vw = 0, vh = 0){
 		// position
 		this.x = x;
 		this.y = y;
