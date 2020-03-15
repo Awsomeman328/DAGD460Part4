@@ -26,8 +26,8 @@ class Game {
         };
 
         balls.push(new Player("player", 42, 40, 50, 255, 0, 0));
-        for(let i = 0; i < 13; i++){
-            balls.push(new Enemy("enemy", rand(0, window.innerWidth), rand(0, window.innerHeight), 50, 0, 0, 0, randF(-1, 1), randF(-1, 1)));
+        for(let i = 0; i < 330; i++){
+            balls.push(new Enemy("enemy", rand(0, window.innerWidth), rand(0, window.innerHeight), 50, 0, 0, 0, randF(-10, 10), randF(-10, 10)));
         }
 
         this.time = {

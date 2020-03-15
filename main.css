@@ -213,3 +213,26 @@ div ul li {
 div ul li ul {
     list-style: circle;
 }
+*/
+
+.listBig {
+    background: #abc;
+    list-style-type: none;
+}
+
+.listBig li {
+    background: #bcd;
+    display: inline-block;
+    margin: 5px auto 5px 0;
+    padding: .25rem;
+}
+
+.listSmall {
+    background: #cde;
+    display: flex;
+    flex-direction: column;
+}
+
+.listSmall li {
+    background: #def;
+}
