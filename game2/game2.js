@@ -1,5 +1,6 @@
-var emptySpace = [[0,0],[0,1],[0,2],[0,3]];
+var emptySpace = [0,0,0,0];
 
+/*
 var whiteS0 = [1,0];
 var whiteS1 = [1,1];
 var whiteS2 = [1,2];
@@ -9,6 +10,7 @@ var blackS0 = [2,0];
 var blackS1 = [2,1];
 var blackS2 = [2,2];
 var blackS3 = [2,3];
+*/
 
 var gameState = {
     isPlayer1Turn: true,
@@ -19,14 +21,14 @@ var gameState = {
         [ emptySpace, emptySpace, emptySpace, emptySpace ]
     ],
     whiteExternal: [
-        [ whiteS0, whiteS1, whiteS2, whiteS3 ],
-        [ whiteS0, whiteS1, whiteS2, whiteS3 ],
-        [ whiteS0, whiteS1, whiteS2, whiteS3 ]
+        [ 1, 1, 1, 1 ],
+        [ 1, 1, 1, 1 ],
+        [ 1, 1, 1, 1 ]
     ],
     blackExternal: [
-        [ blackS0, blackS1, blackS2, blackS3 ],
-        [ blackS0, blackS1, blackS2, blackS3 ],
-        [ blackS0, blackS1, blackS2, blackS3 ]
+        [ 2, 2, 2, 2 ],
+        [ 2, 2, 2, 2 ],
+        [ 2, 2, 2, 2 ]
     ]
 };
 
@@ -87,26 +89,34 @@ function buildGame(){
 
             const d = document.createElement("div");
 
-            const gridPos = {x: x, y: y};
-            console.log(gridPos);
+            let className = "space row:" + y + " col:" + x;
 
             d.addEventListener("click", ()=>{
-                //DONE: Check if there is any piece 'picked up'
-                console.log(d + " at position " + gridPos.x + " " + gridPos.y + " heard a click!");
+                var temp = d.className.split(" ");
+                var tempY = temp[1].split(":");
+                var tempX = temp[2].split(":");
+
+                var gridPos = {x: parseInt(tempX[1]), y: parseInt(tempY[1])};
+                console.log(d + " at position " + gridPos.y + " " + gridPos.x + " heard a click!");
+
+                 //DONE: Check if there is any piece 'picked up'
                 if(selectedPiece != null){
                     
+                    
+                    //console.log(gridPos);
+
                     var hasAPiece;
                     //DONE: Check if the current space have any pieces.
                     for(var c = 0; c < 4; c++){
                         if(hasAPiece == null || !hasAPiece){
-                        if(rows[gridPos.y][gridPos.x][c][0] == 0) hasAPiece = false;
+                        if(rows[gridPos.y][gridPos.x][c] == 0) hasAPiece = false;
 
-                        if(rows[gridPos.y][gridPos.x][c][0] == 1) hasAPiece = true;
-                        if(rows[gridPos.y][gridPos.x][c][0] == 2) hasAPiece = true;
+                        if(rows[gridPos.y][gridPos.x][c] == 1) hasAPiece = true;
+                        if(rows[gridPos.y][gridPos.x][c] == 2) hasAPiece = true;
                         }
                     }
 
-                    if(hasAPiece != null && !hasAPiece){
+                    if(hasAPiece != null && !hasAPiece){ // If hasAPiece is a valid value & that value is false.
 
                         console.log(d + " has no pieces yet!");
                         var sel = selectedPiece.className.split(" ");
@@ -114,8 +124,7 @@ function buildGame(){
                         if(sel[0] == "whitePiece") {
                             if(sel[1] == "size3") {
                                 console.log("woah, that's a big white boi!");
-                                console.log("Let's put the boi at " + rows[gridPos.y] + " / " + rows[gridPos.y][gridPos.x] + " / " + rows[gridPos.y][gridPos.x][3] + " / " + rows[gridPos.y][gridPos.x][3][0] + " / " + gridPos.y + " / " + gridPos.x);
-                                rows[gridPos.y][gridPos.x][3][0] = 1;
+                                rows[gridPos.y][gridPos.x][3] = 1;
                                 var pie = document.createElement("div")
                                 pie.className = "whitePiece size3";
                                 d.appendChild(pie);
@@ -123,7 +132,7 @@ function buildGame(){
                                 selectedPiece = null;
                             }
                             else if(sel[1] == "size2") {
-                                rows[gridPos.y][gridPos.x][2][0] = 1;
+                                rows[gridPos.y][gridPos.x][2] = 1;
                                 var pie = document.createElement("div")
                                 pie.className = "whitePiece size2";
                                 d.appendChild(pie);
@@ -131,7 +140,7 @@ function buildGame(){
                                 selectedPiece = null;
                             }
                             else if(sel[1] == "size1") {
-                                rows[gridPos.y][gridPos.x][1][0] = 1;
+                                rows[gridPos.y][gridPos.x][1] = 1;
                                 var pie = document.createElement("div")
                                 pie.className = "whitePiece size1";
                                 d.appendChild(pie);
@@ -139,7 +148,7 @@ function buildGame(){
                                 selectedPiece = null;
                             }
                             else if(sel[1] == "size0") {
-                                rows[gridPos.y][gridPos.x][0][0] = 1;
+                                rows[gridPos.y][gridPos.x][0] = 1;
                                 var pie = document.createElement("div")
                                 pie.className = "whitePiece size0";
                                 d.appendChild(pie);
@@ -151,7 +160,7 @@ function buildGame(){
 
                         else if(sel[0] == "blackPiece") {
                             if(sel[1] == "size3") {
-                                rows[gridPos.y][gridPos.x][3][0] = 2;
+                                rows[gridPos.y][gridPos.x][3] = 2;
                                 var pie = document.createElement("div")
                                 pie.className = "blackPiece size3";
                                 d.appendChild(pie);
@@ -159,7 +168,7 @@ function buildGame(){
                                 selectedPiece = null;
                             }
                             else if(sel[1] == "size2") {
-                                rows[gridPos.y][gridPos.x][2][0] = 2;
+                                rows[gridPos.y][gridPos.x][2] = 2;
                                 var pie = document.createElement("div")
                                 pie.className = "blackPiece size2";
                                 d.appendChild(pie);
@@ -167,7 +176,7 @@ function buildGame(){
                                 selectedPiece = null;
                             }
                             else if(sel[1] == "size1") {
-                                rows[gridPos.y][gridPos.x][1][0] = 2;
+                                rows[gridPos.y][gridPos.x][1] = 2;
                                 var pie = document.createElement("div")
                                 pie.className = "blackPiece size1";
                                 d.appendChild(pie);
@@ -175,7 +184,7 @@ function buildGame(){
                                 selectedPiece = null;
                             }
                             else if(sel[1] == "size0") {
-                                rows[gridPos.y][gridPos.x][0][0] = 2;
+                                rows[gridPos.y][gridPos.x][0] = 2;
                                 var pie = document.createElement("div")
                                 pie.className = "blackPiece size0";
                                 d.appendChild(pie);
@@ -188,12 +197,12 @@ function buildGame(){
 
                         gameState.isPlayer1Turn = !gameState.isPlayer1Turn;
                     }
-                    else if(hasAPiece != null && hasAPiece){
+                    else if(hasAPiece != null && hasAPiece){ // If hasAPiece is a valid value & that value is true.
                         console.log(d + " has at least 1 piece!");
                         //DONE: Check the size of the biggest piece on this space.
                         var biggest;
                         for(var s = 0; s < 4; s++){
-                            if(rows[gridPos.y][gridPos.x][s][0] == 1 || rows[gridPos.y][gridPos.x][s][0] == 2){
+                            if(rows[gridPos.y][gridPos.x][s] == 1 || rows[gridPos.y][gridPos.x][s] == 2){
                                 biggest = s;
                             }
                         }
@@ -204,7 +213,7 @@ function buildGame(){
                             console.log(selectedPiece.className);
                             if(sel[0] == "whitePiece") {
                                 if(sel[1] == "size3") {
-                                    rows[gridPos.y][gridPos.x][3] = whiteS3;
+                                    rows[gridPos.y][gridPos.x][3] = 1;
                                     var pie = document.createElement("div")
                                     pie.className = "whitePiece size3";
                                     d.appendChild(pie);
@@ -212,7 +221,7 @@ function buildGame(){
                                     selectedPiece = null;
                                 }
                                 else if(sel[1] == "size2") {
-                                    rows[gridPos.y][gridPos.x][2] = whiteS2;
+                                    rows[gridPos.y][gridPos.x][2] = 1;
                                     var pie = document.createElement("div")
                                     pie.className = "whitePiece size2";
                                     d.appendChild(pie);
@@ -220,7 +229,7 @@ function buildGame(){
                                     selectedPiece = null;
                                 }
                                 else if(sel[1] == "size1") {
-                                    rows[gridPos.y][gridPos.x][1] = whiteS1;
+                                    rows[gridPos.y][gridPos.x][1] = 1;
                                     var pie = document.createElement("div")
                                     pie.className = "whitePiece size1";
                                     d.appendChild(pie);
@@ -228,7 +237,7 @@ function buildGame(){
                                     selectedPiece = null;
                                 }
                                 else if(sel[1] == "size0") {
-                                    rows[gridPos.y][gridPos.x][0] = whiteS0;
+                                    rows[gridPos.y][gridPos.x][0] = 1;
                                     var pie = document.createElement("div")
                                     pie.className = "whitePiece size0";
                                     d.appendChild(pie);
@@ -240,7 +249,7 @@ function buildGame(){
 
                             else if(sel[0] == "blackPiece") {
                                 if(sel[1] == "size3") {
-                                    rows[gridPos.y][gridPos.x][3] = blackS3;
+                                    rows[gridPos.y][gridPos.x][3] = 2;
                                     var pie = document.createElement("div")
                                     pie.className = "blackPiece size3";
                                     d.appendChild(pie);
@@ -248,7 +257,7 @@ function buildGame(){
                                     selectedPiece = null;
                                 }
                                 else if(sel[1] == "size2") {
-                                    rows[gridPos.y][gridPos.x][2] = blackS2;
+                                    rows[gridPos.y][gridPos.x][2] = 2;
                                     var pie = document.createElement("div")
                                     pie.className = "blackPiece size2";
                                     d.appendChild(pie);
@@ -256,7 +265,7 @@ function buildGame(){
                                     selectedPiece = null;
                                 }
                                 else if(sel[1] == "size1") {
-                                    rows[gridPos.y][gridPos.x][1] = blackS1;
+                                    rows[gridPos.y][gridPos.x][1] = 2;
                                     var pie = document.createElement("div")
                                     pie.className = "blackPiece size1";
                                     d.appendChild(pie);
@@ -264,7 +273,7 @@ function buildGame(){
                                     selectedPiece = null;
                                 }
                                 else  if(sel[1] == "size0") {
-                                    rows[gridPos.y][gridPos.x][0] = blackS0;
+                                    rows[gridPos.y][gridPos.x][0] = 2;
                                     var pie = document.createElement("div")
                                     pie.className = "blackPiece size0";
                                     d.appendChild(pie);
@@ -279,9 +288,10 @@ function buildGame(){
                         }
                     }
                 }
+                updateGame();
             });
 
-            d.setAttribute("class", "space");
+            d.setAttribute("class", className);
             r.appendChild(d);
         }
     }
@@ -312,7 +322,7 @@ function buildGame(){
 }
 
 function updateGame(){
-
+    console.log(gameState.board);
 }
 
 buildGame();
